@@ -1,0 +1,13 @@
+# PATLITE LR6-USB (VID 0x191A / PID 0x8003)
+# 일반 사용자가 sudo 없이 libusb로 접근할 수 있도록 권한을 부여한다.
+#
+# 설치:
+#   sudo cp 99-patlite-lr6.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules && sudo udevadm trigger
+#   (장치를 뽑았다가 다시 연결)
+#
+# plugdev 그룹 사용 시 본인 계정 추가 필요:
+#   sudo usermod -aG plugdev $USER
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="191a", ATTRS{idProduct}=="8003", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="191a", ATTRS{idProduct}=="8003", MODE="0660", GROUP="plugdev", TAG+="uaccess"

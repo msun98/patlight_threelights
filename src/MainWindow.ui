@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>880</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PATLITE 신호등 제어기</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="rootLayout" stretch="0,1,1">
+    <property name="leftMargin"><number>12</number></property>
+    <property name="topMargin"><number>12</number></property>
+    <property name="rightMargin"><number>12</number></property>
+    <property name="bottomMargin"><number>12</number></property>
+    <property name="spacing"><number>10</number></property>
+    <item>
+     <widget class="QGroupBox" name="groupConnection">
+      <property name="title"><string>연결</string></property>
+      <layout class="QHBoxLayout" name="connectionLayout">
+       <item>
+        <widget class="QLabel" name="statusDot">
+         <property name="styleSheet"><string notr="true">color:#C0392B; font-size:18px;</string></property>
+         <property name="text"><string>●</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="statusText">
+         <property name="text"><string>연결 안 됨</string></property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="connSpacer1">
+         <property name="orientation"><enum>Qt::Horizontal</enum></property>
+         <property name="sizeType"><enum>QSizePolicy::Fixed</enum></property>
+         <property name="sizeHint"><size><width>12</width><height>1</height></size></property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="deviceType"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lanTarget">
+         <property name="minimumSize"><size><width>140</width><height>0</height></size></property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="connSpacer2">
+         <property name="orientation"><enum>Qt::Horizontal</enum></property>
+         <property name="sizeHint"><size><width>40</width><height>20</height></size></property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="autoConnect">
+         <property name="text"><string>자동 재연결</string></property>
+         <property name="checked"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="connectBtn">
+         <property name="text"><string>연결</string></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="middleLayout" stretch="3,1">
+      <property name="spacing"><number>12</number></property>
+      <item>
+       <layout class="QVBoxLayout" name="controlsLayout">
+        <property name="spacing"><number>10</number></property>
+        <item>
+         <widget class="QGroupBox" name="groupLed">
+          <property name="title"><string>LED 제어</string></property>
+          <layout class="QGridLayout" name="ledGridLayout">
+           <property name="horizontalSpacing"><number>10</number></property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="ledSwatch_0">
+             <property name="minimumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="maximumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="styleSheet"><string notr="true">background:#E03A34; border:1px solid #666; border-radius:3px;</string></property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="ledName_0">
+             <property name="minimumSize"><size><width>48</width><height>0</height></size></property>
+             <property name="text"><string>적색</string></property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="ledCombo_0"/>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="ledButton_0">
+             <property name="toolTip"><string>이 색상만 변경, 나머지는 현재 상태 유지</string></property>
+             <property name="text"><string>적용</string></property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="ledSwatch_1">
+             <property name="minimumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="maximumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="styleSheet"><string notr="true">background:#F2C21B; border:1px solid #666; border-radius:3px;</string></property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="ledName_1">
+             <property name="minimumSize"><size><width>48</width><height>0</height></size></property>
+             <property name="text"><string>황색</string></property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="ledCombo_1"/>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="ledButton_1">
+             <property name="toolTip"><string>이 색상만 변경, 나머지는 현재 상태 유지</string></property>
+             <property name="text"><string>적용</string></property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="ledSwatch_2">
+             <property name="minimumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="maximumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="styleSheet"><string notr="true">background:#2FAE55; border:1px solid #666; border-radius:3px;</string></property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="ledName_2">
+             <property name="minimumSize"><size><width>48</width><height>0</height></size></property>
+             <property name="text"><string>녹색</string></property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QComboBox" name="ledCombo_2"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="ledButton_2">
+             <property name="toolTip"><string>이 색상만 변경, 나머지는 현재 상태 유지</string></property>
+             <property name="text"><string>적용</string></property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="ledSwatch_3">
+             <property name="minimumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="maximumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="styleSheet"><string notr="true">background:#2C79D8; border:1px solid #666; border-radius:3px;</string></property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="ledName_3">
+             <property name="minimumSize"><size><width>48</width><height>0</height></size></property>
+             <property name="text"><string>청색</string></property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QComboBox" name="ledCombo_3"/>
+           </item>
+           <item row="3" column="3">
+            <widget class="QPushButton" name="ledButton_3">
+             <property name="toolTip"><string>이 색상만 변경, 나머지는 현재 상태 유지</string></property>
+             <property name="text"><string>적용</string></property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="ledSwatch_4">
+             <property name="minimumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="maximumSize"><size><width>16</width><height>16</height></size></property>
+             <property name="styleSheet"><string notr="true">background:#CFCFCF; border:1px solid #666; border-radius:3px;</string></property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="ledName_4">
+             <property name="minimumSize"><size><width>48</width><height>0</height></size></property>
+             <property name="text"><string>백색</string></property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QComboBox" name="ledCombo_4"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QPushButton" name="ledButton_4">
+             <property name="toolTip"><string>이 색상만 변경, 나머지는 현재 상태 유지</string></property>
+             <property name="text"><string>적용</string></property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="4">
+            <widget class="QPushButton" name="towerBtn">
+             <property name="toolTip"><string>5색 LED를 한 번에 전송</string></property>
+             <property name="text"><string>전체 일괄 적용 (SetTower)</string></property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBuzzer">
+          <property name="title"><string>부저 제어</string></property>
+          <layout class="QGridLayout" name="buzzerGridLayout">
+           <property name="horizontalSpacing"><number>10</number></property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="buzPatternLabel">
+             <property name="text"><string>패턴</string></property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="buzPattern"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="buzLimitLabel">
+             <property name="text"><string>횟수</string></property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QSpinBox" name="buzLimit">
+             <property name="toolTip"><string>0 = 연속 취명, 1~15 = 취명 횟수 (LR6-USB 전용)</string></property>
+             <property name="specialValueText"><string>연속</string></property>
+             <property name="maximum"><number>15</number></property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QCheckBox" name="buzUsePitch">
+             <property name="text"><string>음계 지정 (LR6-USB 전용)</string></property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="buzPitchALabel">
+             <property name="text"><string>음 A</string></property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QComboBox" name="buzPitchA">
+             <property name="enabled"><bool>false</bool></property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="buzPitchBLabel">
+             <property name="text"><string>음 B</string></property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QComboBox" name="buzPitchB">
+             <property name="enabled"><bool>false</bool></property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="4">
+            <layout class="QHBoxLayout" name="buzzerBtnRow">
+             <item>
+              <widget class="QPushButton" name="buzApply">
+               <property name="text"><string>부저 실행</string></property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="buzStop">
+               <property name="text"><string>부저 정지</string></property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupPreset">
+          <property name="title"><string>프리셋 / 전체</string></property>
+          <layout class="QHBoxLayout" name="presetLayout">
+           <item>
+            <widget class="QPushButton" name="presetBtn_0">
+             <property name="text"><string>정상 (녹색)</string></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="presetBtn_1">
+             <property name="text"><string>경고 (황색 점멸 + 부저)</string></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="presetBtn_2">
+             <property name="text"><string>이상 (적색 + 연속 부저)</string></property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="presetSpacer">
+             <property name="orientation"><enum>Qt::Horizontal</enum></property>
+             <property name="sizeHint"><size><width>40</width><height>20</height></size></property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="resetBtn">
+             <property name="toolTip"><string>전 LED 소등 + 부저 정지</string></property>
+             <property name="text"><string>전체 리셋</string></property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="controlsSpacer">
+          <property name="orientation"><enum>Qt::Vertical</enum></property>
+          <property name="sizeHint"><size><width>20</width><height>40</height></size></property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupPreview">
+        <property name="title"><string>상태 미리보기</string></property>
+        <layout class="QVBoxLayout" name="previewLayout">
+         <item>
+          <widget class="TowerWidget" name="preview" native="true"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="previewNote">
+           <property name="styleSheet"><string notr="true">color:#888; font-size:11px;</string></property>
+           <property name="text"><string>전송한 명령 기준 시뮬레이션
+(장치는 상태 읽기 미지원)</string></property>
+           <property name="alignment"><set>Qt::AlignCenter</set></property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupLog">
+      <property name="title"><string>로그</string></property>
+      <layout class="QVBoxLayout" name="logLayout">
+       <item>
+        <widget class="QPlainTextEdit" name="log">
+         <property name="readOnly"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="logBtnRow">
+         <item>
+          <spacer name="logSpacer">
+           <property name="orientation"><enum>Qt::Horizontal</enum></property>
+           <property name="sizeHint"><size><width>40</width><height>20</height></size></property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clearLogBtn">
+           <property name="text"><string>지우기</string></property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TowerWidget</class>
+   <extends>QWidget</extends>
+   <header>TowerWidget.h</header>
+   <container>0</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
